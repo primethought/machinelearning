@@ -194,7 +194,7 @@ namespace Microsoft.Data.Analysis
 
         protected override void SetValue(long rowIndex, object value)
         {
-            if (value == null || value.GetType() == typeof(T))
+            if (value == null || typeof(T).IsAssignableFrom(value.GetType()))
             {
                 _columnContainer[rowIndex] = (T?)value;
             }
